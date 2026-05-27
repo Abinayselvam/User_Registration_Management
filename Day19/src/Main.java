@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args)
     {
@@ -9,5 +11,9 @@ public class Main {
         System.out.println("Enter the firstName:");
         String firstName=sc.nextLine();
         System.out.println("Valid FirstName:"+user.validateFirstName(firstName));
+
+        System.out.println("Enter the lastName");
+        String lastName=sc.nextLine();
+        System.out.println("Valid LastName:"+user.lastNameValidation(lastName));
     }
 }

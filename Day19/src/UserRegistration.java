@@ -9,4 +9,15 @@ public class UserRegistration {
                 firstName
         );
     }
+    //UserCase2
+    public boolean lastNameValidation(String lastName)
+    {
+        return Pattern.matches(
+                "^[A-Z][a-zA-Z]{2,}$",
+                lastName
+        );
+    }
+
+
+
 }
