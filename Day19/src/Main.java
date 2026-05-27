@@ -17,5 +17,9 @@ public class Main {
         System.out.println("Enter the email");
         String email=sc.nextLine();
         System.out.println("Valid email:"+user.mailValidation(email));
+
+        System.out.println("Enter the Mobile Number:");
+        String phone=sc.nextLine();
+        System.out.println("Valid Mobile Number:"+user.mobileValidation(phone));
     }
 }

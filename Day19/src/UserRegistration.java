@@ -26,7 +26,9 @@ public class UserRegistration {
         );
 
     }
-
-
-
+    //UseCase 4
+    public boolean mobileValidation(String number)
+    {
+        return Pattern.matches(   "^[0-9]{2}\\s[0-9]{10}$",number);
+    }
 }
