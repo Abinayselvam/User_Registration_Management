@@ -18,27 +18,16 @@ public class UserRegistration {
         );
     }
     //UseCase 3
-    public boolean mailValidation(String email)
-    {
+    public boolean validateEmail(String email) {
+
         return Pattern.matches(
-                "^[a-zA-Z0-9]+([._+-][a-zA-Z0-9]+)*@[a-zA-Z0-9]+\\.[a-z]{2,}(\\.[a-z]{2,})?$",
+                "^[a-zA-Z0-9]+([._+-][a-zA-Z0-9]+)*@[a-zA-Z0-9]+(\\.[a-zA-Z]{2,}){1,2}$",
                 email
         );
-
     }
     //UseCase 4
     public boolean mobileValidation(String number)
     {
         return Pattern.matches(   "^[0-9]{2}\\s[0-9]{10}$",number);
-    }
-
-    // UC5, UC6, UC7, UC8 Password Rules
-    public boolean validatePassword(
-            String password) {
-
-        return Pattern.matches(
-                "^(?=.*[A-Z])(?=.*[0-9])(?=[^!@#$%^&*]*[!@#$%^&*][^!@#$%^&*]*$).{8,}$",
-                password
-        );
     }
 }
