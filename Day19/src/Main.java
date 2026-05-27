@@ -1,7 +1,5 @@
 import java.util.Scanner;
 
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args)
     {
@@ -15,5 +13,9 @@ public class Main {
         System.out.println("Enter the lastName");
         String lastName=sc.nextLine();
         System.out.println("Valid LastName:"+user.lastNameValidation(lastName));
+
+        System.out.println("Enter the email");
+        String email=sc.nextLine();
+        System.out.println("Valid email:"+user.mailValidation(email));
     }
 }
