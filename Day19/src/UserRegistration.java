@@ -31,4 +31,14 @@ public class UserRegistration {
     {
         return Pattern.matches(   "^[0-9]{2}\\s[0-9]{10}$",number);
     }
+
+    // UC5, UC6, UC7, UC8 Password Rules
+    public boolean validatePassword(
+            String password) {
+
+        return Pattern.matches(
+                "^(?=.*[A-Z])(?=.*[0-9])(?=[^!@#$%^&*]*[!@#$%^&*][^!@#$%^&*]*$).{8,}$",
+                password
+        );
+    }
 }

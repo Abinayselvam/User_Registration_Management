@@ -21,5 +21,10 @@ public class Main {
         System.out.println("Enter the Mobile Number:");
         String phone=sc.nextLine();
         System.out.println("Valid Mobile Number:"+user.mobileValidation(phone));
+
+        System.out.println("Enter Password:");
+        String password=sc.nextLine();
+        System.out.println("Valid password"+user.validatePassword(password));
+
     }
 }
