@@ -1,8 +1,7 @@
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) throws InvalidUserException {
         System.out.println("Welcome to the user registration management");
         Scanner sc=new Scanner(System.in);
         UserRegistration user=new UserRegistration();
@@ -12,7 +11,7 @@ public class Main {
 
         System.out.println("Enter the lastName");
         String lastName=sc.nextLine();
-        System.out.println("Valid LastName:"+user.lastNameValidation(lastName));
+        System.out.println("Valid LastName:"+user.validateLastName(lastName));
 
         String[] validEmails = {
 
@@ -69,7 +68,7 @@ public class Main {
 
         System.out.println("Enter the Mobile Number:");
         String phone=sc.nextLine();
-        System.out.println("Valid Mobile Number:"+user.mobileValidation(phone));
+        System.out.println("Valid Mobile Number:"+user.validateMobile(phone));
 
         System.out.println("Enter Password:");
         String password=sc.nextLine();

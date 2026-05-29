@@ -1,56 +1,179 @@
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class UserRegistrationTest {
 
-    UserRegistration user = new UserRegistration();
+    UserRegistration user =
+            new UserRegistration();
 
-    // UC1 - First Name
+    // UC1 First Name
+
     @Test
-    void validateFirstName() {
+    void validateFirstName()
+            throws InvalidUserException {
 
-        assertTrue(user.validateFirstName("Abinaya"));
-        assertFalse(user.validateFirstName("ab"));
-        assertFalse(user.validateFirstName("abinaya"));
+        assertTrue(
+                user.validateFirstName(
+                        "Abinaya"
+                )
+        );
+
+        assertThrows(
+
+                InvalidUserException.class,
+
+                () -> user.validateFirstName(
+                        "ab"
+                )
+        );
+
+        assertThrows(
+
+                InvalidUserException.class,
+
+                () -> user.validateFirstName(
+                        "abinaya"
+                )
+        );
     }
 
-    // UC2 - Last Name
-    @Test
-    void lastNameValidation() {
+    // UC2 Last Name
 
-        assertTrue(user.lastNameValidation("Selvam"));
-        assertFalse(user.lastNameValidation("se"));
-        assertFalse(user.lastNameValidation("selvam"));
+    @Test
+    void lastNameValidation()
+            throws InvalidUserException {
+
+        assertTrue(
+                user.validateLastName(
+                        "Selvam"
+                )
+        );
+
+        assertThrows(
+
+                InvalidUserException.class,
+
+                () -> user.validateLastName(
+                        "se"
+                )
+        );
+
+        assertThrows(
+
+                InvalidUserException.class,
+
+                () -> user.validateLastName(
+                        "selvam"
+                )
+        );
     }
 
-    // UC3 - Email
+    // UC3 Email
+
     @Test
-    void validateEmail() {
+    void validateEmail()
+            throws InvalidUserException {
 
-        assertTrue(user.validateEmail("abc@yahoo.com"));
-        assertTrue(user.validateEmail("abc.100@gmail.com"));
+        assertTrue(
+                user.validateEmail(
+                        "abc@yahoo.com"
+                )
+        );
 
-        assertFalse(user.validateEmail("abc@.com"));
-        assertFalse(user.validateEmail("abc@gmail"));
+        assertTrue(
+                user.validateEmail(
+                        "abc.100@gmail.com"
+                )
+        );
+
+        assertThrows(
+
+                InvalidUserException.class,
+
+                () -> user.validateEmail(
+                        "abc@.com"
+                )
+        );
+
+        assertThrows(
+
+                InvalidUserException.class,
+
+                () -> user.validateEmail(
+                        "abc@gmail"
+                )
+        );
     }
 
-    // UC4 - Mobile
-    @Test
-    void mobileValidation() {
+    // UC4 Mobile
 
-        assertTrue(user.mobileValidation("91 9876543210"));
-        assertFalse(user.mobileValidation("919876543210"));
-        assertFalse(user.mobileValidation("91 98765"));
+    @Test
+    void mobileValidation()
+            throws InvalidUserException {
+
+        assertTrue(
+                user.validateMobile(
+                        "91 9876543210"
+                )
+        );
+
+        assertThrows(
+
+                InvalidUserException.class,
+
+                () -> user.validateMobile(
+                        "919876543210"
+                )
+        );
+
+        assertThrows(
+
+                InvalidUserException.class,
+
+                () -> user.validateMobile(
+                        "91 98765"
+                )
+        );
     }
 
-    // UC5 - Password
+    // UC5 Password
+
     @Test
-    void validatePassword() {
+    void validatePassword()
+            throws InvalidUserException {
 
-        assertTrue(user.validatePassword("Abinaya1@"));
+        assertTrue(
+                user.validatePassword(
+                        "Abinaya1@"
+                )
+        );
 
-        assertFalse(user.validatePassword("abinaya"));
-        assertFalse(user.validatePassword("ABINAYA123"));
-        assertFalse(user.validatePassword("Abinaya123")); // no special char
+        assertThrows(
+
+                InvalidUserException.class,
+
+                () -> user.validatePassword(
+                        "abinaya"
+                )
+        );
+
+        assertThrows(
+
+                InvalidUserException.class,
+
+                () -> user.validatePassword(
+                        "ABINAYA123"
+                )
+        );
+
+        assertThrows(
+
+                InvalidUserException.class,
+
+                () -> user.validatePassword(
+                        "Abinaya123"
+                )
+        );
     }
 }
