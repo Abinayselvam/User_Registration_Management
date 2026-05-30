@@ -22,7 +22,7 @@ public class UserRegistrationParameterizedTest {
             throws InvalidUserException {
 
         assertTrue(
-                user.validateEmail(email)
+                user.validateEmail.validate(email)
         );
     }
 
@@ -42,7 +42,7 @@ public class UserRegistrationParameterizedTest {
 
                 InvalidUserException.class,
 
-                () -> user.validateEmail(email)
+                () -> user.validateEmail.validate(email)
         );
     }
 }

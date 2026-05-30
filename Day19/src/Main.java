@@ -1,17 +1,58 @@
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws InvalidUserException {
-        System.out.println("Welcome to the user registration management");
-        Scanner sc=new Scanner(System.in);
-        UserRegistration user=new UserRegistration();
-        System.out.println("Enter the firstName:");
-        String firstName=sc.nextLine();
-        System.out.println("Valid FirstName:"+user.validateFirstName(firstName));
 
-        System.out.println("Enter the lastName");
-        String lastName=sc.nextLine();
-        System.out.println("Valid LastName:"+user.validateLastName(lastName));
+    public static void main(String[] args) {
+
+        System.out.println(
+                "Welcome to User Registration Management"
+        );
+
+        Scanner sc = new Scanner(System.in);
+
+        UserRegistration user =
+                new UserRegistration();
+
+        try {
+
+            System.out.println(
+                    "Enter First Name:"
+            );
+
+            String firstName =
+                    sc.nextLine();
+
+            System.out.println(
+                    "Valid First Name : "
+                            + user.validateFirstName.validate(
+                            firstName
+                    )
+            );
+
+
+            System.out.println(
+                    "Enter Last Name:"
+            );
+
+            String lastName =
+                    sc.nextLine();
+
+            System.out.println(
+                    "Valid Last Name : "
+                            + user.validateLastName.validate(
+                            lastName
+                    )
+            );
+
+        }
+
+        catch (InvalidUserException e) {
+
+            System.out.println(
+                    e.getMessage()
+            );
+        }
+
 
         String[] validEmails = {
 
@@ -25,6 +66,7 @@ public class Main {
                 "abc@gmail.com.com",
                 "abc+100@gmail.com"
         };
+
 
         String[] invalidEmails = {
 
@@ -43,36 +85,111 @@ public class Main {
                 "abc@gmail.com.aa.au"
         };
 
-        System.out.println("VALID EMAILS");
+
+        System.out.println(
+                "\nVALID EMAILS"
+        );
 
         for(String email : validEmails) {
 
-            System.out.println(
-                    email + " -> "
-                            + user.validateEmail(email)
-            );
+            try {
+
+                System.out.println(
+
+                        email + " -> "
+
+                                + user.validateEmail.validate(
+                                email
+                        )
+                );
+            }
+
+            catch (InvalidUserException e) {
+
+                System.out.println(
+
+                        email + " -> "
+
+                                + e.getMessage()
+                );
+            }
         }
 
-        System.out.println();
 
-        System.out.println("INVALID EMAILS");
+        System.out.println(
+                "\nINVALID EMAILS"
+        );
 
         for(String email : invalidEmails) {
 
-            System.out.println(
-                    email + " -> "
-                            + user.validateEmail(email)
-            );
+            try {
+
+                System.out.println(
+
+                        email + " -> "
+
+                                + user.validateEmail.validate(
+                                email
+                        )
+                );
+            }
+
+            catch (InvalidUserException e) {
+
+                System.out.println(
+
+                        email + " -> "
+
+                                + e.getMessage()
+                );
+            }
         }
 
 
-        System.out.println("Enter the Mobile Number:");
-        String phone=sc.nextLine();
-        System.out.println("Valid Mobile Number:"+user.validateMobile(phone));
+        try {
 
-        System.out.println("Enter Password:");
-        String password=sc.nextLine();
-        System.out.println("Valid password"+user.validatePassword(password));
+            System.out.println(
+                    "\nEnter Mobile Number:"
+            );
 
+            String mobile =
+                    sc.nextLine();
+
+            System.out.println(
+
+                    "Valid Mobile : "
+
+                            + user.validateMobile.validate(
+                            mobile
+                    )
+            );
+
+
+            System.out.println(
+                    "Enter Password:"
+            );
+
+            String password =
+                    sc.nextLine();
+
+            System.out.println(
+
+                    "Valid Password : "
+
+                            + user.validatePassword.validate(
+                            password
+                    )
+            );
+
+        }
+
+        catch (InvalidUserException e) {
+
+            System.out.println(
+                    e.getMessage()
+            );
+        }
+
+        sc.close();
     }
 }

@@ -1,113 +1,112 @@
-import java.util.regex.Pattern;
-
 public class UserRegistration {
 
-    public boolean validateFirstName(
-            String firstName)
-            throws InvalidUserException {
+    UserValidation validateFirstName =
+            (firstName) -> {
 
-        if (!Pattern.matches(
-                "^[A-Z][a-zA-Z]{2,}$",
-                firstName)) {
+                String pattern =
+                        "^[A-Z][a-z]{2,}$";
 
-            throw new InvalidUserException(
+                if(firstName.matches(pattern))
 
-                    InvalidUserException
-                            .exceptionType
-                            .Invalid_FirstName,
+                    return true;
 
-                    "Invalid First Name"
-            );
-        }
+                throw new InvalidUserException(
 
-        return true;
-    }
+                        InvalidUserException
+                                .exceptionType
+                                .Invalid_FirstName,
 
-    public boolean validateLastName(
-            String lastName)
-            throws InvalidUserException {
+                        "Invalid First Name"
+                );
+            };
 
-        if (!Pattern.matches(
-                "^[A-Z][a-zA-Z]{2,}$",
-                lastName)) {
 
-            throw new InvalidUserException(
 
-                    InvalidUserException
-                            .exceptionType
-                            .Invalid_LastName,
+    UserValidation validateLastName =
+            (lastName) -> {
 
-                    "Invalid Last Name"
-            );
-        }
+                String pattern =
+                        "^[A-Z][a-z]{2,}$";
 
-        return true;
-    }
+                if(lastName.matches(pattern))
 
-    public boolean validateEmail(
-            String email)
-            throws InvalidUserException {
+                    return true;
 
-        if (!Pattern.matches(
+                throw new InvalidUserException(
 
-                "^[a-zA-Z0-9]+([._+-][a-zA-Z0-9]+)*@[a-zA-Z0-9]+(\\.[a-zA-Z]{2,}){1,2}$",
+                        InvalidUserException
+                                .exceptionType
+                                .Invalid_LastName,
 
-                email)) {
+                        "Invalid Last Name"
+                );
+            };
 
-            throw new InvalidUserException(
 
-                    InvalidUserException
-                            .exceptionType
-                            .Invalid_Email,
 
-                    "Invalid Email"
-            );
-        }
+    UserValidation validateEmail =
+            (email) -> {
 
-        return true;
-    }
+                String pattern =
+                        "^[a-zA-Z0-9]+([._+-][a-zA-Z0-9]+)?@[a-zA-Z0-9]+\\.[a-z]{2,}(\\.[a-z]{2,})?$";
 
-    public boolean validateMobile(
-            String mobile)
-            throws InvalidUserException {
+                if(email.matches(pattern))
 
-        if (!Pattern.matches(
-                "^[0-9]{2}\\s[0-9]{10}$",
-                mobile)) {
+                    return true;
 
-            throw new InvalidUserException(
+                throw new InvalidUserException(
 
-                    InvalidUserException
-                            .exceptionType
-                            .Invalid_Mobile,
+                        InvalidUserException
+                                .exceptionType
+                                .Invalid_Email,
 
-                    "Invalid Mobile"
-            );
-        }
+                        "Invalid Email"
+                );
+            };
 
-        return true;
-    }
 
-    public boolean validatePassword(
-            String password)
-            throws InvalidUserException {
 
-        if (!Pattern.matches(
+    UserValidation validateMobile =
+            (mobile) -> {
 
-                "^(?=.*[A-Z])(?=.*[0-9])(?=[^!@#$%^&*]*[!@#$%^&*][^!@#$%^&*]*$).{8,}$",
+                String pattern =
+                        "^[0-9]{2}\\s[0-9]{10}$";
 
-                password)) {
+                if(mobile.matches(pattern))
 
-            throw new InvalidUserException(
+                    return true;
 
-                    InvalidUserException
-                            .exceptionType
-                            .Invalid_Password,
+                throw new InvalidUserException(
 
-                    "Invalid Password"
-            );
-        }
+                        InvalidUserException
+                                .exceptionType
+                                .Invalid_Email,
 
-        return true;
-    }
+                        "Invalid Mobile"
+                );
+            };
+
+
+
+    UserValidation validatePassword =
+            (password) -> {
+
+                String pattern =
+                        "^(?=.*[A-Z])(?=.*[0-9])(?=[^@#$%^&*!]*[@#$%^&*!][^@#$%^&*!]*$).{8,}$";
+
+                if(password.matches(pattern))
+
+                    return true;
+
+                throw new InvalidUserException(
+
+                        InvalidUserException
+                                .exceptionType
+                                .Invalid_Password,
+
+                        "Invalid Password"
+                );
+            };
+
+
 }

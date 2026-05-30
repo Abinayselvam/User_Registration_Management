@@ -14,7 +14,7 @@ public class UserRegistrationTest {
             throws InvalidUserException {
 
         assertTrue(
-                user.validateFirstName(
+                user.validateFirstName.validate(
                         "Abinaya"
                 )
         );
@@ -23,7 +23,7 @@ public class UserRegistrationTest {
 
                 InvalidUserException.class,
 
-                () -> user.validateFirstName(
+                () -> user.validateFirstName.validate(
                         "ab"
                 )
         );
@@ -32,7 +32,7 @@ public class UserRegistrationTest {
 
                 InvalidUserException.class,
 
-                () -> user.validateFirstName(
+                () -> user.validateFirstName.validate(
                         "abinaya"
                 )
         );
@@ -45,7 +45,7 @@ public class UserRegistrationTest {
             throws InvalidUserException {
 
         assertTrue(
-                user.validateLastName(
+                user.validateLastName.validate(
                         "Selvam"
                 )
         );
@@ -54,7 +54,7 @@ public class UserRegistrationTest {
 
                 InvalidUserException.class,
 
-                () -> user.validateLastName(
+                () -> user.validateLastName.validate(
                         "se"
                 )
         );
@@ -63,7 +63,7 @@ public class UserRegistrationTest {
 
                 InvalidUserException.class,
 
-                () -> user.validateLastName(
+                () -> user.validateLastName.validate(
                         "selvam"
                 )
         );
@@ -76,13 +76,13 @@ public class UserRegistrationTest {
             throws InvalidUserException {
 
         assertTrue(
-                user.validateEmail(
+                user.validateEmail.validate(
                         "abc@yahoo.com"
                 )
         );
 
         assertTrue(
-                user.validateEmail(
+                user.validateEmail.validate(
                         "abc.100@gmail.com"
                 )
         );
@@ -91,7 +91,7 @@ public class UserRegistrationTest {
 
                 InvalidUserException.class,
 
-                () -> user.validateEmail(
+                () -> user.validateEmail.validate(
                         "abc@.com"
                 )
         );
@@ -100,7 +100,7 @@ public class UserRegistrationTest {
 
                 InvalidUserException.class,
 
-                () -> user.validateEmail(
+                () -> user.validateEmail.validate(
                         "abc@gmail"
                 )
         );
@@ -113,7 +113,7 @@ public class UserRegistrationTest {
             throws InvalidUserException {
 
         assertTrue(
-                user.validateMobile(
+                user.validateMobile.validate(
                         "91 9876543210"
                 )
         );
@@ -122,7 +122,7 @@ public class UserRegistrationTest {
 
                 InvalidUserException.class,
 
-                () -> user.validateMobile(
+                () -> user.validateMobile.validate(
                         "919876543210"
                 )
         );
@@ -131,7 +131,7 @@ public class UserRegistrationTest {
 
                 InvalidUserException.class,
 
-                () -> user.validateMobile(
+                () -> user.validateMobile.validate(
                         "91 98765"
                 )
         );
@@ -144,7 +144,7 @@ public class UserRegistrationTest {
             throws InvalidUserException {
 
         assertTrue(
-                user.validatePassword(
+                user.validatePassword.validate(
                         "Abinaya1@"
                 )
         );
@@ -153,7 +153,7 @@ public class UserRegistrationTest {
 
                 InvalidUserException.class,
 
-                () -> user.validatePassword(
+                () -> user.validatePassword.validate(
                         "abinaya"
                 )
         );
@@ -162,7 +162,7 @@ public class UserRegistrationTest {
 
                 InvalidUserException.class,
 
-                () -> user.validatePassword(
+                () -> user.validatePassword.validate(
                         "ABINAYA123"
                 )
         );
@@ -171,7 +171,7 @@ public class UserRegistrationTest {
 
                 InvalidUserException.class,
 
-                () -> user.validatePassword(
+                () -> user.validatePassword.validate(
                         "Abinaya123"
                 )
         );
